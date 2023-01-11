@@ -10,6 +10,21 @@
 //     console.log(data);
 //   });
 
+function getData () {
+    var statsUrl = "https://www.balldontlie.io/api/v1/players?search=lebron"
+    fetch(statsUrl)
+    .then(function (response) {
+        console.log("getData function works");
+        console.log(response);
+        return response.json();
+    })
+    .then(function (data) {
+        console.log("data function works: ", data);
+        console.log(data);
+    })
+    }
+    getData();
+
   const options = {
 	method: 'GET',
 	headers: {
@@ -22,3 +37,5 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
+
+
