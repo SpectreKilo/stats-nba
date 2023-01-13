@@ -38,4 +38,16 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 
+    // team select form
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+      });
+
+      // Player Autocomplete 
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.autocomplete');
+        var instances = M.Autocomplete.init(elems, options);
+      });
+
 
