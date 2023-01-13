@@ -50,8 +50,8 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
         var instances = M.Autocomplete.init(elems, options);
       });
 
-
 const searchBtnEl = document.getElementById("search-btn");
+const searchInput = document.getElementById("autocomplete-input");
 
 class UI {
   constructor(){
@@ -68,4 +68,18 @@ class UI {
       </div>
     `
   }
+
+  clearPlayerCard(){
+    this.playerCardEl.innerHTML = "";
+  }
 }
+
+const ui = new UI;
+
+searchBtnEl.addEventListener('click',()=> {
+  ui.clearPlayerCard();
+  const currentValue = search.value;
+
+  
+
+})
