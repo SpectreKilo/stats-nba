@@ -1,11 +1,17 @@
-* {font-family: 'Barlow Condensed';
-}
-
-h1 {
-    padding: 10px;
+* {
+    box-sizing: border-box; /* sets box size based on border instead of default content */
+    font-family: Cabin;
 }
 
 header {
+    margin-bottom: 10px;
+}
+
+h1 { 
+    padding: 10px;
+}
+
+.headerContainer {
     display: flex;
     justify-content: start;
     padding: 10px;
