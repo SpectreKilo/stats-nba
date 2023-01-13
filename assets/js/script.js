@@ -53,31 +53,9 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
 const searchBtnEl = document.getElementById("search-btn");
 const searchInput = document.getElementById("autocomplete-input");
 
-class UI {
-  constructor(){
-    this.playerCardEl = document.getElementById("player-card");
-  }
-
-  populatePlayerCard(data, playerName) {
-    this.playerCardEl.innerHTML = `
-      <div class = "player">
-        <h3 class="player-name">${playerName}</h3>
-        <h5 class="player-info"> Height: ${data.height_feet}'${data.height_inches} inches</h5>
-        <h5 class="player-info"> Position: ${data.position}</h5>
-        <h5 class="player-info"> Team: ${data.team.full_name}</h5>
-      </div>
-    `
-  }
-
-  // clearPlayerCard(){
-  //   this.playerCardEl.innerHTML = "";
-  // }
-}
-
-const ui = new UI;
-
 searchBtnEl.addEventListener('click',()=> {
   // ui.clearPlayerCard();
+  event.preventDefault();
   const currentValue = searchInput.value;
 
   getData(currentValue);
