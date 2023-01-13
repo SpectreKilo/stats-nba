@@ -51,3 +51,4 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
       });
 
 
+const searchBtnEl = document.getElementById("search-btn");
