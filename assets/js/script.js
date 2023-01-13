@@ -69,19 +69,17 @@ class UI {
     `
   }
 
-  clearPlayerCard(){
-    this.playerCardEl.innerHTML = "";
-  }
+  // clearPlayerCard(){
+  //   this.playerCardEl.innerHTML = "";
+  // }
 }
 
 const ui = new UI;
 
 searchBtnEl.addEventListener('click',()=> {
-  ui.clearPlayerCard();
-  const currentValue = search.value;
+  // ui.clearPlayerCard();
+  const currentValue = searchInput.value;
 
-  getData(currentValue).then((data)=>{
-    data.slice(0,2).forEach (information=>ui.populatePlayerCard(information, data));
-  })
+  getData(currentValue)
 
 })
