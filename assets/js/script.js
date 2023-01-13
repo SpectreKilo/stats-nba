@@ -10,8 +10,8 @@
 //     console.log(data);
 //   });
 
-function getData () {
-    var statsUrl = "https://www.balldontlie.io/api/v1/players?search=lebron"
+function getData (input) {
+    var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
     fetch(statsUrl)
     .then(function (response) {
         console.log("getData function works");
@@ -19,7 +19,7 @@ function getData () {
         return response.json();
     })
     .then(function (data) {
-        console.log("data function works: ", data);
+        console.log("data function works");
         console.log(data);
     })
     }
@@ -50,4 +50,39 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
         var instances = M.Autocomplete.init(elems, options);
       });
 
+const searchBtnEl = document.getElementById("search-btn");
+const searchInput = document.getElementById("autocomplete-input");
 
+class UI {
+  constructor(){
+    this.playerCardEl = document.getElementById("player-card");
+  }
+
+  populatePlayerCard(data, playerName) {
+    this.playerCardEl.innerHTML = `
+      <div class = "player">
+        <h3 class="player-name">${playerName}</h3>
+        <h5 class="player-info"> Height: ${data.height_feet}'${data.height_inches} inches</h5>
+        <h5 class="player-info"> Position: ${data.position}</h5>
+        <h5 class="player-info"> Team: ${data.team.full_name}</h5>
+      </div>
+    `
+  }
+
+  // clearPlayerCard(){
+  //   this.playerCardEl.innerHTML = "";
+  // }
+}
+
+const ui = new UI;
+
+searchBtnEl.addEventListener('click',()=> {
+  // ui.clearPlayerCard();
+  const currentValue = searchInput.value;
+
+  getData(currentValue);
+  console.log("works");
+  
+  // ui.populatePlayerCard(data);
+
+})
