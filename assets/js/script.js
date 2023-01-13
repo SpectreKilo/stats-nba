@@ -54,11 +54,11 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
 
 
 
-      // code to run functions and load page will remove hide class from player stat card and team 
-      $("#player-input").submit(function (event) {
-        $(".playerStatsCard").removeClass("hide");
-        $(".teamStatsCard").removeClass("hide");
-        event.preventDefault();
-      })
+    //   // code to run functions and load page will remove hide class from player stat card and team 
+    //   $("#player-input").submit(function (event) {
+    //     $(".playerStatsCard").removeClass("hide");
+    //     $(".teamStatsCard").removeClass("hide");
+    //     event.preventDefault();
+    //   })
 
 
