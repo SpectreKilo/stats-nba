@@ -10,8 +10,8 @@
 //     console.log(data);
 //   });
 
-function getData () {
-    var statsUrl = `https://www.balldontlie.io/api/v1/players?search=LeBron`
+function getData (input) {
+    var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
     fetch(statsUrl)
     .then(function (response) {
         console.log("getData function works");
@@ -19,7 +19,7 @@ function getData () {
         return response.json();
     })
     .then(function (data) {
-        console.log("data function works: ", data);
+        console.log("data function works");
         console.log(data);
     })
     }
@@ -80,6 +80,8 @@ searchBtnEl.addEventListener('click',()=> {
   ui.clearPlayerCard();
   const currentValue = search.value;
 
-  
+  getData(currentValue).then((data)=>{
+    data.slice(0,2).forEach (information=>ui.populatePlayerCard(information, data));
+  })
 
 })
