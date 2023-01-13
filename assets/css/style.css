@@ -1,0 +1,14 @@
+* {font-family: 'Barlow Condensed';
+}
+
+h1 {
+    padding: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: start;
+    padding: 10px;
+    margin: 0 auto;
+    background: white;
+}
