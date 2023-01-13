@@ -10,8 +10,8 @@
 //     console.log(data);
 //   });
 
-function getData () {
-    var statsUrl = "https://www.balldontlie.io/api/v1/players?search=lebron"
+function getData (input) {
+    var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
     fetch(statsUrl)
     .then(function (response) {
         console.log("getData function works");
@@ -19,7 +19,7 @@ function getData () {
         return response.json();
     })
     .then(function (data) {
-        console.log("data function works: ", data);
+        console.log("data function works");
         console.log(data);
     })
     }
@@ -50,4 +50,28 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
         var instances = M.Autocomplete.init(elems, options);
       });
 
+const searchBtnEl = document.getElementById("search-btn");
+const searchInput = document.getElementById("autocomplete-input");
 
+
+
+
+    //   // code to run functions and load page will remove hide class from player stat card and team 
+    //   $("#player-input").submit(function (event) {
+    //     $(".playerStatsCard").removeClass("hide");
+    //     $(".teamStatsCard").removeClass("hide");
+    //     event.preventDefault();
+    //   })
+
+
+searchBtnEl.addEventListener('click',()=> {
+  // ui.clearPlayerCard();
+  event.preventDefault();
+  const currentValue = searchInput.value;
+
+  getData(currentValue);
+  console.log("works");
+  
+  // ui.populatePlayerCard(data);
+
+})
