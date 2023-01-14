@@ -24,6 +24,7 @@ function getPlayerData (input) {
     .then(function (data) {
         console.log("data function works");
         console.log(data);
+        
     })
     }
     getPlayerData();
@@ -95,3 +96,4 @@ searchBtnEl.addEventListener('click',()=> {
   // ui.populatePlayerCard(data);
 
 })
+
