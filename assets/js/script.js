@@ -10,11 +10,14 @@
 //     console.log(data);
 //   });
 
-function getData (input) {
+// Get player data based on input from text search box:
+var playerName = "";
+
+function getPlayerData (input) {
     var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
     fetch(statsUrl)
     .then(function (response) {
-        console.log("getData function works");
+        console.log("getPlayerData function works");
         console.log(response);
         return response.json();
     })
@@ -23,7 +26,24 @@ function getData (input) {
         console.log(data);
     })
     }
-    getData();
+    getPlayerData();
+
+// Get team data based on input from dropdown select:
+
+    function getTeams () {
+        var statsUrl = `https://www.balldontlie.io/api/v1/teams`
+        fetch(statsUrl)
+        .then(function (response) {
+            console.log("getTeams function works");
+            console.log(response);
+            return response.json();
+        })
+        .then(function (data) {
+            console.log("teams data function works");
+            console.log(data);
+        })
+        }
+        getTeams();
 
   const options = {
 	method: 'GET',
@@ -69,7 +89,7 @@ searchBtnEl.addEventListener('click',()=> {
   event.preventDefault();
   const currentValue = searchInput.value;
 
-  getData(currentValue);
+  getPlayerData(currentValue);
   console.log("works");
   
   // ui.populatePlayerCard(data);
