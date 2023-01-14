@@ -12,6 +12,7 @@
 
 // Get player data based on input from text search box:
 var playerName = "";
+var playerID = "";
 
 function getPlayerData (input) {
     var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
@@ -24,9 +25,16 @@ function getPlayerData (input) {
     .then(function (data) {
         console.log("data function works");
         console.log(data);
+        playerID = data.id
+        console.log(playerID);
     })
     }
-    getPlayerData();
+    // getPlayerData();
+
+function getSeasonAvg () {
+    var seasonAvgUrl = "https://www.balldontlie.io/api/v1/season_averages?season=2022&player_ids[]=1"
+}
+
 
 // Get team data based on input from dropdown select:
 
