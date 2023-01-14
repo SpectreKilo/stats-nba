@@ -56,7 +56,6 @@ function getSeasonAvg () {
     })
 }
 
-
 // Get team data based on input from dropdown select:
 
     function getTeams () {
