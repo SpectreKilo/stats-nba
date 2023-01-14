@@ -58,6 +58,7 @@ function getSeasonAvg () {
 function appendStats () {
     
 
+
 }
 
 // Get team data based on input from dropdown select:
