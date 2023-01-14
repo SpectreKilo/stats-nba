@@ -102,9 +102,6 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
 const searchBtnEl = document.getElementById("search-btn");
 const searchInput = document.getElementById("autocomplete-input");
 
-
-
-
     //   // code to run functions and load page will remove hide class from player stat card and team 
     //   $("#player-input").submit(function (event) {
     //     $(".playerStatsCard").removeClass("hide");
