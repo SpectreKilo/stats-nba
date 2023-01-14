@@ -30,10 +30,7 @@ function getPlayerData (input) {
         console.log(playerID);
         getSeasonAvg();
     })
-    
-    
     }
-    // getPlayerData();
 
 // Function retrieves season average stats using the player ID retrieved from the getPlayerData function
 function getSeasonAvg () {
