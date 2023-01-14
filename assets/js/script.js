@@ -14,6 +14,7 @@
 var playerName = "";
 var playerID = "";
 
+// Function retrieves player data which includes player ID needed to get stats
 function getPlayerData (input) {
     var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
     fetch(statsUrl)
@@ -34,6 +35,7 @@ function getPlayerData (input) {
     }
     // getPlayerData();
 
+// Function retrieves season average stats using the player ID retrieved from the getPlayerData function
 function getSeasonAvg () {
     var seasonAvgUrl = "https://www.balldontlie.io/api/v1/season_averages?season=2022&player_ids[]=" + playerID
     fetch(seasonAvgUrl)
