@@ -47,21 +47,16 @@ function getSeasonAvg () {
         console.log(data);
         var seasonAvgPts = data.data[0].pts
         console.log("Season Average Points: " + seasonAvgPts);
+        $("#tablePts").text(seasonAvgPts);
         var seasonAvgAst = data.data[0].ast 
         console.log("Season Average Assists: " + seasonAvgAst);
+        $("#tableAst").text(seasonAvgAst);
         var seasonAvgReb = data.data[0].reb
         console.log("Season Average Rebounds: " + seasonAvgReb);
-        appendStats();
+        $("#tableReb").text(seasonAvgReb);
     })
 }
 
-function appendStats () {
-    console.log("appendstats function works");
-    $("#tablePts").text(seasonAvgPts);
-
-
-
-}
 
 // Get team data based on input from dropdown select:
 
