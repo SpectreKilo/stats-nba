@@ -121,3 +121,4 @@ searchBtnEl.addEventListener('click',()=> {
   // ui.populatePlayerCard(data);
 
 })
+
