@@ -12,7 +12,9 @@
 
 // Get player data based on input from text search box:
 var playerName = "";
+var playerID = "";
 
+// Function retrieves player data which includes player ID needed to get stats
 function getPlayerData (input) {
     var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
     fetch(statsUrl)
@@ -24,10 +26,40 @@ function getPlayerData (input) {
     .then(function (data) {
         console.log("data function works");
         console.log(data);
+<<<<<<< HEAD
         
+=======
+        playerID = data.data[0].id
+        console.log(playerID);
+        getSeasonAvg();
+>>>>>>> e0748b488defaa419d2143ec160b38568e3fc085
     })
     }
-    getPlayerData();
+
+// Function retrieves season average stats using the player ID retrieved from the getPlayerData function
+function getSeasonAvg () {
+    var seasonAvgUrl = "https://www.balldontlie.io/api/v1/season_averages?season=2022&player_ids[]=" + playerID
+    fetch(seasonAvgUrl)
+    .then(function (response){
+        console.log("getSeasonAvg function works");
+        console.log(response);
+        return response.json();
+    })
+    .then(function (data) {
+        console.log("data function works");
+        console.log(data);
+        var seasonAvgPts = data.data[0].pts
+        console.log("Season Average Points: " + seasonAvgPts);
+        $("#tablePts").text(seasonAvgPts);
+        var seasonAvgAst = data.data[0].ast 
+        console.log("Season Average Assists: " + seasonAvgAst);
+        $("#tableAst").text(seasonAvgAst);
+        var seasonAvgReb = data.data[0].reb
+        console.log("Season Average Rebounds: " + seasonAvgReb);
+        $("#tableReb").text(seasonAvgReb);
+    })
+}
+
 
 // Get team data based on input from dropdown select:
 
@@ -73,9 +105,6 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
 
 const searchBtnEl = document.getElementById("search-btn");
 const searchInput = document.getElementById("autocomplete-input");
-
-
-
 
     //   // code to run functions and load page will remove hide class from player stat card and team 
     //   $("#player-input").submit(function (event) {
