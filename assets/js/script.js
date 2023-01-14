@@ -26,13 +26,9 @@ function getPlayerData (input) {
     .then(function (data) {
         console.log("data function works");
         console.log(data);
-<<<<<<< HEAD
-        
-=======
         playerID = data.data[0].id
         console.log(playerID);
         getSeasonAvg();
->>>>>>> e0748b488defaa419d2143ec160b38568e3fc085
     })
     }
 
