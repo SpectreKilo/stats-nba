@@ -25,16 +25,40 @@ function getPlayerData (input) {
     .then(function (data) {
         console.log("data function works");
         console.log(data);
-        playerID = data.id
+        playerID = data.data[0].id
         console.log(playerID);
+        getSeasonAvg();
     })
+    
+    
     }
     // getPlayerData();
 
 function getSeasonAvg () {
-    var seasonAvgUrl = "https://www.balldontlie.io/api/v1/season_averages?season=2022&player_ids[]=1"
+    var seasonAvgUrl = "https://www.balldontlie.io/api/v1/season_averages?season=2022&player_ids[]=" + playerID
+    fetch(seasonAvgUrl)
+    .then(function (response){
+        console.log("getSeasonAvg function works");
+        console.log(response);
+        return response.json();
+    })
+    .then(function (data) {
+        console.log("data function works");
+        console.log(data);
+        var seasonAvgPts = data.data[0].pts
+        console.log("Season Average Points: " + seasonAvgPts);
+        var seasonAvgAst = data.data[0].ast 
+        console.log("Season Average Assists: " + seasonAvgAst);
+        var seasonAvgReb = data.data[0].seasonAvgReb
+        console.log("Season Average Rebounds: " + seasonAvgReb);
+        appendStats();
+    })
 }
 
+function appendStats () {
+    
+
+}
 
 // Get team data based on input from dropdown select:
 
