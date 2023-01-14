@@ -49,14 +49,16 @@ function getSeasonAvg () {
         console.log("Season Average Points: " + seasonAvgPts);
         var seasonAvgAst = data.data[0].ast 
         console.log("Season Average Assists: " + seasonAvgAst);
-        var seasonAvgReb = data.data[0].seasonAvgReb
+        var seasonAvgReb = data.data[0].reb
         console.log("Season Average Rebounds: " + seasonAvgReb);
         appendStats();
     })
 }
 
 function appendStats () {
-    
+    console.log("appendstats function works");
+    $("#tablePts").text(seasonAvgPts);
+
 
 
 }
