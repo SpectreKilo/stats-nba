@@ -14,6 +14,8 @@
 var playerName = "";
 var playerID = "";
 
+
+
 // Function retrieves player data which includes player ID needed to get stats
 function getPlayerData (input) {
     var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
@@ -55,7 +57,6 @@ function getSeasonAvg () {
         $("#tableReb").text(seasonAvgReb);
     })
 }
-
 
 // Get team data based on input from dropdown select:
 
@@ -121,3 +122,41 @@ searchBtnEl.addEventListener('click',()=> {
   // ui.populatePlayerCard(data);
 
 })
+
+// DanB: creating a variable based on team input dropdown
+var teamInputEl = document.querySelector('#team-input');
+var userFormEl = document.querySelector('#team-form');
+
+var formSubmitHandler = function (event) {
+    event.preventDefault();
+  
+    var teamname = teamInputEl.value.trim();
+  
+    if (teamname) {
+      getTeamData(teamname);
+  
+    } else {
+      alert('Please enter a valid NBA Team name');
+    }
+    console.log(teamname)
+  };
+
+const options1 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '0562083e3bmshd545a32cee16861p101696jsn6597d4607d1d',
+		'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+	}
+};
+
+function getTeamData (team) {
+    var teamURL = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
+    
+    fetch(teamURL, options1)
+    .then(res => res.json())
+    .then(teamData => console.log(teamData))
+}
+
+userFormEl.addEventListener('submit', formSubmitHandler);
+
+// 
