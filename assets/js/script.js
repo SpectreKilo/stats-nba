@@ -150,17 +150,43 @@ const options1 = {
 };
 
 function getTeamData (team) {
-    var teamURL = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
-    
+
+    var teamURL = `https://api-nba-v1.p.rapidapi.com/teams?name=` + team
     fetch(teamURL, options1)
-    .then(res => res.json())
-    .then(teamData => console.log(teamData))
+    .then(function (response) {
+        console.log("teamData function works");
+        console.log(response);
+        return response.json();
+    })
+    .then(function (data) {
+        console.log("teams data function works");
+        console.log(data);
+        var teamLogoURL = data.response[0].logo
+        console.log(teamLogoURL);
+    })
+
+
+
+    // var teamURL = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
+    
+    // fetch(teamURL, options1)
+    // .then(res => res.json())
+    // .then(teamData => console.log(teamData))
+
+    // .then(function (data) {
+    //     console.log("data function works");
+    //     console.log(teamData);
+    //     var teamLogoURL = teamData.data[0].logo
+    //     console.log("This should be the logo url: " + teamLogoURL);
+
+    // })
+
 }
 
-// var teamLogo = leagues.logo;
-// console.log(teamLogo);
+// var teamLogo = team[0];
+//     console.log(teamLogo);
 
-// userFormEl.addEventListener('submit', formSubmitHandler);
+userFormEl.addEventListener('submit', formSubmitHandler);
 
 // parse response from rapid api and locate logo url
 // using logo url key
