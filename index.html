@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>NBA Stat Tracker</title>
 </head>
+
 <body>
 <header>
   <div class="headerContainer">
@@ -51,44 +52,47 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Card Title</span>
-              <div class="input-field">
-                <select>
-                  <option value="" disabled selected>Choose A Team</option>
-                  <optgroup label="Eastern Conference"></optgroup>
-                  <option value="1">Atlanta Hawks</option>
-                  <option value="2">Boston Celtics</option>
-                  <option value="3">Brooklyn Nets</option>
-                  <option value="4">Charlotte Hornets</option>
-                  <option value="5">Chicago Bulls</option>
-                  <option value="6">Cleveland Cavaliers</option>
-                  <option value="7">Detroit Pistons</option>
-                  <option value="8">Indiana Pacers</option>
-                  <option value="9">Miami Heat</option>
-                  <option value="10">Milwaukee Bucks</option>
-                  <option value="11">New York Knicks</option>
-                  <option value="12">Orlando Magic</option>
-                  <option value="13">Philadelphia 76ers</option>
-                  <option value="14">Toronto Raptors</option>
-                  <option value="15">Washington Wizards</option>
-                  <optgroup label="Western Conference"></optgroup>
-                  <option value="16">Dallas Mavericks</option>
-                  <option value="17">Denver Nuggets</option>
-                  <option value="18">Golden State Warriors</option>
-                  <option value="19">Houston Rockets</option>
-                  <option value="20">Los Angeles Clippers</option>
-                  <option value="21">Los Angeles Lakers</option>
-                  <option value="22">Memphis Grizzlies</option>
-                  <option value="23">Minnesota Timberwolves</option>
-                  <option value="24">New Orleans Pelicans</option>
-                  <option value="25">Oklahoma City Thunder</option>
-                  <option value="26">Phoenix Suns</option>
-                  <option value="27">Portland Trail Blazers</option>
-                  <option value="28">Sacramento Kings</option>
-                  <option value="29">San Antonio Spurs</option>
-                  <option value="30">Utah Jazz</option>
-                </select>
-                <label>Select Team</label>
-              </div>
+              <form id="team-form">
+                <div  class="input-field">
+                  <select id="team-input">
+                    <option value="" disabled selected>Choose A Team</option>
+                    <optgroup label="Eastern Conference"></optgroup>
+                    <option value="Atlanta%20Hawks">Atlanta Hawks</option>
+                    <option value="Boston%20Celtics">Boston Celtics</option>
+                    <option value="Brooklyn%20Nets">Brooklyn Nets</option>
+                    <option value="Charlotte%20Hornets">Charlotte Hornets</option>
+                    <option value="Chicago%20Bulls">Chicago Bulls</option>
+                    <option value="Cleveland%20Cavaliers">Cleveland Cavaliers</option>
+                    <option value="Detroit%20Pistons">Detroit Pistons</option>
+                    <option value="Indiana%20Pacers">Indiana Pacers</option>
+                    <option value="Miami%20Heat">Miami Heat</option>
+                    <option value="Milwaukee%20Bucks">Milwaukee Bucks</option>
+                    <option value="New%20York%20Knicks">New York Knicks</option>
+                    <option value="Orlando%20Magic">Orlando Magic</option>
+                    <option value="Philadelphia%2076ers">Philadelphia 76ers</option>
+                    <option value="Toronto%20Raptors">Toronto Raptors</option>
+                    <option value="Washington%20Wizards">Washington Wizards</option>
+                    <optgroup label="Western%20Conference"></optgroup>
+                    <option value="Dallas%20Mavericks">Dallas Mavericks</option>
+                    <option value="Denver%20Nuggets">Denver Nuggets</option>
+                    <option value="Golden%20State%20Warriors">Golden State Warriors</option>
+                    <option value="Houston%20Rockets">Houston Rockets</option>
+                    <option value="Los%20Angeles%20Clippers">Los Angeles Clippers</option>
+                    <option value="Los%20Angeles%20Lakers">Los Angeles Lakers</option>
+                    <option value="Memphis%20Grizzlies">Memphis Grizzlies</option>
+                    <option value="Minnesota%20Timberwolves">Minnesota Timberwolves</option>
+                    <option value="New%20Orleans%20Pelicans">New Orleans Pelicans</option>
+                    <option value="Oklahoma%20City%20Thunder">Oklahoma City Thunder</option>
+                    <option value="Phoenix%20Suns">Phoenix Suns</option>
+                    <option value="Portland%20Trail%20Blazers">Portland Trail Blazers</option>
+                    <option value="Sacramento%20Kings">Sacramento Kings</option>
+                    <option value="San%20Antonio%20Spurs">San Antonio Spurs</option>
+                    <option value="Utah%20Jazz">Utah Jazz</option>
+                  </select>
+                  <label>Select Team</label>
+                </div>
+                <button id = "team-select" type = "submit" class="waves-effect waves-light btn">Select Team</button>
+              </form>
             </div>
           </div>
         </div>
@@ -162,6 +166,7 @@
 
       <div class="player-card"></div>
   
+
 
 <!-- Compiled and minified JavaScript for materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
