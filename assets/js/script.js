@@ -14,6 +14,8 @@
 var playerName = "";
 var playerID = "";
 
+
+
 // Function retrieves player data which includes player ID needed to get stats
 function getPlayerData (input) {
     var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
