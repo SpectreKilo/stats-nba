@@ -159,4 +159,7 @@ function getTeamData (team) {
 
 userFormEl.addEventListener('submit', formSubmitHandler);
 
-// 
+// parse response from rapid api and locate logo url
+// using logo url key
+//      response: 0: logo: "url"
+// send that value (the url) to a function that creates an html element that displays the image inside the team div
