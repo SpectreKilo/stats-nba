@@ -157,7 +157,10 @@ function getTeamData (team) {
     .then(teamData => console.log(teamData))
 }
 
-userFormEl.addEventListener('submit', formSubmitHandler);
+// var teamLogo = leagues.logo;
+// console.log(teamLogo);
+
+// userFormEl.addEventListener('submit', formSubmitHandler);
 
 // parse response from rapid api and locate logo url
 // using logo url key
