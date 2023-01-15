@@ -123,6 +123,7 @@ searchBtnEl.addEventListener('click',()=> {
 
 })
 
+
 // DanB: creating a variable based on team input dropdown
 var teamInputEl = document.querySelector('#team-input');
 var userFormEl = document.querySelector('#team-form');
