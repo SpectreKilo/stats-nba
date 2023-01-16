@@ -198,3 +198,11 @@ userFormEl.addEventListener('submit', formSubmitHandler);
 //      response: 0: logo: "url"
 // send that value (the url) to a function that creates an html element that displays the image inside the team div
 
+$(function(){
+    $('#player-input').parsley().on('field:validated',function(){
+        var ok = $('.parsley-error'.length === 0);
+    })
+    .on('form:sumbit',function(){
+        return false;
+    })
+})
