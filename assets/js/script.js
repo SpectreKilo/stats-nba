@@ -9,6 +9,20 @@
 //   .then(function (data) {
 //     console.log(data);
 //   });
+$(function(){
+    $('#player-input').parsley().on('field:validated',function(){
+        var ok = $('.parsley-error'.length === 0);
+        console.log("test");
+    })
+    
+    .on('form:sumbit',function(){
+        return false;
+        
+    })
+});
+
+var test1 = $('#autocomplete-input').parsley();
+console.log(test1);
 
 // Get player data based on input from text search box:
 var playerName = "";
@@ -198,14 +212,3 @@ userFormEl.addEventListener('submit', formSubmitHandler);
 //      response: 0: logo: "url"
 // send that value (the url) to a function that creates an html element that displays the image inside the team div
 
-$(function(){
-    $('#player-input').parsley().on('field:validated',function(){
-        var ok = $('.parsley-error'.length === 0);
-        console.log("wow");
-    })
-    
-    .on('form:sumbit',function(){
-        return false;
-        
-    })
-})
