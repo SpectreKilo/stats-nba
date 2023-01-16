@@ -127,6 +127,7 @@ searchBtnEl.addEventListener('click',()=> {
 var teamInputEl = document.querySelector('#team-input');
 var userFormEl = document.querySelector('#team-form');
 
+
 var formSubmitHandler = function (event) {
     event.preventDefault();
   
@@ -151,7 +152,7 @@ const options1 = {
 
 function getTeamData (team) {
 
-    var teamURL = `https://api-nba-v1.p.rapidapi.com/teams?name=` + team
+    var teamURL = `https://api-nba-v1.p.rapidapi.com/teams?name=` + team;
     fetch(teamURL, options1)
     .then(function (response) {
         console.log("teamData function works");
@@ -163,7 +164,13 @@ function getTeamData (team) {
         console.log(data);
         var teamLogoURL = data.response[0].logo
         console.log(teamLogoURL);
+
+        var imageEl = document.createElement('img');
+        imageEl.src = teamLogoURL;
+        userFormEl.appendChild(imageEl);
+
     })
+
 
 
 
@@ -183,8 +190,6 @@ function getTeamData (team) {
 
 }
 
-// var teamLogo = team[0];
-//     console.log(teamLogo);
 
 userFormEl.addEventListener('submit', formSubmitHandler);
 
