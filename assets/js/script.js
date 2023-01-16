@@ -12,7 +12,7 @@
 $(function(){
     $('#player-input').parsley().on('field:validated',function(){
         var ok = $('.parsley-error'.length === 0);
-        console.log("test");
+        console.log("parsley works!");
     })
     
     .on('form:sumbit',function(){
@@ -45,6 +45,13 @@ function getPlayerData (input) {
         playerID = data.data[0].id
         console.log(playerID);
         getSeasonAvg();
+
+        var firstName = data.data[0].first_name;
+        var lastName = data.data[0].last_name;
+
+        localStorage.setItem('savedFirstName', firstName);
+        localStorage.setItem('savedLastName', lastName);
+        document.getElementById('searchedPlayer').innerHTML = localStorage.getItem('savedFirstName') + " " +localStorage.getItem('savedLastName');
     })
     }
 
@@ -69,6 +76,12 @@ function getSeasonAvg () {
         var seasonAvgReb = data.data[0].reb
         console.log("Season Average Rebounds: " + seasonAvgReb);
         $("#tableReb").text(seasonAvgReb);
+
+        localStorage.setItem('savedPts', seasonAvgPts);
+        document.getElementById('searchedPts').innerHTML= localStorage.getItem('savedPts')
+        
+
+
     })
 }
 
@@ -203,7 +216,6 @@ function getTeamData (team) {
     // })
 
 }
-
 
 userFormEl.addEventListener('submit', formSubmitHandler);
 
