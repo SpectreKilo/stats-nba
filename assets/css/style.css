@@ -20,3 +20,6 @@ h1 {
     color: white;
 }
 
+.warning-hide {
+    display: none;
+}
