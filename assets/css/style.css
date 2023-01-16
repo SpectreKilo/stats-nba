@@ -11,6 +11,11 @@ h1 {
     padding: 10px;
 }
 
+/* main {
+    display: flex;
+    min-width: 200px;
+} */
+
 .headerContainer {
     display: flex;
     justify-content: start;
