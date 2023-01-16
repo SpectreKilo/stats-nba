@@ -80,7 +80,11 @@ function getSeasonAvg () {
         localStorage.setItem('savedPts', seasonAvgPts);
         document.getElementById('searchedPts').innerHTML= localStorage.getItem('savedPts')
         
+        localStorage.setItem('savedAsts', seasonAvgAst);
+        document.getElementById('searchedAsts').innerHTML = localStorage.getItem('savedAsts');
 
+        localStorage.setItem('savedRebounds', seasonAvgReb);
+        document.getElementById('searchedRebounds').innerHTML = localStorage.getItem('savedRebounds');
 
     })
 }
