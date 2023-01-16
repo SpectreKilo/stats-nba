@@ -201,8 +201,11 @@ userFormEl.addEventListener('submit', formSubmitHandler);
 $(function(){
     $('#player-input').parsley().on('field:validated',function(){
         var ok = $('.parsley-error'.length === 0);
+        console.log("wow");
     })
+    
     .on('form:sumbit',function(){
         return false;
+        
     })
 })
