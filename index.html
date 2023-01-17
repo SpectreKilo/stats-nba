@@ -29,9 +29,6 @@
             <div class="card-content white-text">
               
               <span class="card-title">Search A Player To See Their Season Average Points, Assists, and Rebounds</span>
-              <div class="warning-hide">
-                <h4>Require Valid Player</h4>
-              </div>
               <div class="row">
                 <div class="col s12">
                   <div class="row">
@@ -136,12 +133,14 @@
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Previous Game </span>
+              <span class="card-title">Previous Player Stats </span>
               <table class = "">
                 <thead>
                   <tr>
-                      <th> Team Name</th>
-                      <th> Score</th>
+                      <th> Player</th>
+                      <th> Points</th>
+                      <th> Assists</th>
+                      <th> Rebounds</th>
                      
 
                   </tr>
@@ -149,15 +148,12 @@
         
                 <tbody>
                   <tr>
-                    <td id = "searchedTeam"></td>
-                    <td id = "searchedTeamScore"></td>
-                    
+                    <td id = "searchedPlayer"></td>
+                    <td id = "searchedPts"></td>
+                    <td id = "searchedAsts"></td>
+                    <td id = "searchedRebounds"></td>   
                   </tr>
-                  <tr>
-                    <td id = opponentTeam></td>
-                    <td id = opponentScore></td>
-                    
-                  </tr>
+                 
                   
                 </tbody>
               </table>
@@ -168,9 +164,8 @@
       </div>
    
 
-      <div class="player-card"></div>
-</main>
-
+   
+  
 
 <!-- Compiled and minified JavaScript for materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

@@ -9,6 +9,20 @@
 //   .then(function (data) {
 //     console.log(data);
 //   });
+$(function(){
+    $('#player-input').parsley().on('field:validated',function(){
+        var ok = $('.parsley-error'.length === 0);
+        console.log("parsley works!");
+    })
+    
+    .on('form:sumbit',function(){
+        return false;
+        
+    })
+});
+
+var test1 = $('#autocomplete-input').parsley();
+console.log(test1);
 
 // Get player data based on input from text search box:
 var playerName = "";
@@ -31,6 +45,13 @@ function getPlayerData (input) {
         playerID = data.data[0].id
         console.log(playerID);
         getSeasonAvg();
+
+        var firstName = data.data[0].first_name;
+        var lastName = data.data[0].last_name;
+
+        localStorage.setItem('savedFirstName', JSON.stringify(firstName));
+        localStorage.setItem('savedLastName', JSON.stringify(lastName));
+       
     })
     }
 
@@ -55,6 +76,11 @@ function getSeasonAvg () {
         var seasonAvgReb = data.data[0].reb
         console.log("Season Average Rebounds: " + seasonAvgReb);
         $("#tableReb").text(seasonAvgReb);
+
+        localStorage.setItem('savedPts', JSON.stringify(seasonAvgPts));
+        localStorage.setItem('savedAsts', JSON.stringify(seasonAvgAst));
+        localStorage.setItem('savedRebounds', JSON.stringify(seasonAvgReb));
+        
     })
 }
 
@@ -190,10 +216,20 @@ function getTeamData (team) {
 
 }
 
-
 userFormEl.addEventListener('submit', formSubmitHandler);
 
 // parse response from rapid api and locate logo url
 // using logo url key
 //      response: 0: logo: "url"
 // send that value (the url) to a function that creates an html element that displays the image inside the team div
+
+var savedFN = JSON.parse(localStorage.getItem('savedFirstName'));
+var savedLN = JSON.parse(localStorage.getItem('savedLastName'));
+var savedPts = JSON.parse(localStorage.getItem('savedPts'));
+var savedAsts = JSON.parse(localStorage.getItem('savedAsts'));
+var savedRebounds = JSON.parse(localStorage.getItem('savedRebounds'));
+
+document.getElementById('searchedPlayer').innerHTML = savedFN + " " + savedLN;
+document.getElementById('searchedPts').innerHTML = savedPts;
+document.getElementById('searchedAsts').innerHTML = savedAsts;
+document.getElementById('searchedRebounds').innerHTML = savedRebounds;
