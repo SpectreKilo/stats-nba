@@ -1,18 +1,7 @@
-// fetch('https://www.balldontlie.io/api/v1/teams', {
-// //   // method: 'GET', //GET is the default.
-// //   credentials: 'same-origin', // include, *same-origin, omit
-// //   redirect: 'follow', // manual, *follow, error => follow: Automatically follow redirects. Unless otherwise stated the redirect mode is set to follow
-// })
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//   });
+
 $(function(){
     $('#player-input').parsley().on('field:validated',function(){
         var ok = $('.parsley-error'.length === 0);
-        console.log("parsley works!");
     })
     
     .on('form:sumbit',function(){
@@ -35,13 +24,9 @@ function getPlayerData (input) {
     var statsUrl = `https://www.balldontlie.io/api/v1/players?search=${input}`
     fetch(statsUrl)
     .then(function (response) {
-        console.log("getPlayerData function works");
-        console.log(response);
         return response.json();
     })
     .then(function (data) {
-        console.log("data function works");
-        console.log(data);
         playerID = data.data[0].id
         console.log(playerID);
         getSeasonAvg();
@@ -60,21 +45,14 @@ function getSeasonAvg () {
     var seasonAvgUrl = "https://www.balldontlie.io/api/v1/season_averages?season=2022&player_ids[]=" + playerID
     fetch(seasonAvgUrl)
     .then(function (response){
-        console.log("getSeasonAvg function works");
-        console.log(response);
         return response.json();
     })
     .then(function (data) {
-        console.log("data function works");
-        console.log(data);
         var seasonAvgPts = data.data[0].pts
-        console.log("Season Average Points: " + seasonAvgPts);
         $("#tablePts").text(seasonAvgPts);
         var seasonAvgAst = data.data[0].ast 
-        console.log("Season Average Assists: " + seasonAvgAst);
         $("#tableAst").text(seasonAvgAst);
         var seasonAvgReb = data.data[0].reb
-        console.log("Season Average Rebounds: " + seasonAvgReb);
         $("#tableReb").text(seasonAvgReb);
 
         localStorage.setItem('savedPts', JSON.stringify(seasonAvgPts));
@@ -90,13 +68,9 @@ function getSeasonAvg () {
         var statsUrl = `https://www.balldontlie.io/api/v1/teams`
         fetch(statsUrl)
         .then(function (response) {
-            console.log("getTeams function works");
-            console.log(response);
             return response.json();
         })
         .then(function (data) {
-            console.log("teams data function works");
-            console.log(data);
         })
         }
         getTeams();
@@ -129,13 +103,6 @@ fetch('https://api-nba-v1.p.rapidapi.com/players?search=james', options)
 const searchBtnEl = document.getElementById("search-btn");
 const searchInput = document.getElementById("autocomplete-input");
 
-    //   // code to run functions and load page will remove hide class from player stat card and team 
-    //   $("#player-input").submit(function (event) {
-    //     $(".playerStatsCard").removeClass("hide");
-    //     $(".teamStatsCard").removeClass("hide");
-    //     event.preventDefault();
-    //   })
-
 
 searchBtnEl.addEventListener('click',()=> {
   // ui.clearPlayerCard();
@@ -143,10 +110,6 @@ searchBtnEl.addEventListener('click',()=> {
   const currentValue = searchInput.value;
 
   getPlayerData(currentValue);
-  console.log("works");
-  
-  // ui.populatePlayerCard(data);
-
 })
 
 // DanB: creating a variable based on team input dropdown
@@ -165,7 +128,6 @@ var formSubmitHandler = function (event) {
     } else {
       alert('Please enter a valid NBA Team name');
     }
-    console.log(teamname)
   };
 
 const options1 = {
@@ -181,39 +143,17 @@ function getTeamData (team) {
     var teamURL = `https://api-nba-v1.p.rapidapi.com/teams?name=` + team;
     fetch(teamURL, options1)
     .then(function (response) {
-        console.log("teamData function works");
-        console.log(response);
         return response.json();
     })
     .then(function (data) {
-        console.log("teams data function works");
-        console.log(data);
+
         var teamLogoURL = data.response[0].logo
-        console.log(teamLogoURL);
 
         var imageEl = document.createElement('img');
         imageEl.src = teamLogoURL;
         userFormEl.appendChild(imageEl);
 
     })
-
-
-
-
-    // var teamURL = 'https://api-nba-v1.p.rapidapi.com/teams?name=' + team;
-    
-    // fetch(teamURL, options1)
-    // .then(res => res.json())
-    // .then(teamData => console.log(teamData))
-
-    // .then(function (data) {
-    //     console.log("data function works");
-    //     console.log(teamData);
-    //     var teamLogoURL = teamData.data[0].logo
-    //     console.log("This should be the logo url: " + teamLogoURL);
-
-    // })
-
 }
 
 userFormEl.addEventListener('submit', formSubmitHandler);
