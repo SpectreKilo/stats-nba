@@ -49,9 +49,9 @@ function getPlayerData (input) {
         var firstName = data.data[0].first_name;
         var lastName = data.data[0].last_name;
 
-        localStorage.setItem('savedFirstName', firstName);
-        localStorage.setItem('savedLastName', lastName);
-        document.getElementById('searchedPlayer').innerHTML = localStorage.getItem('savedFirstName') + " " +localStorage.getItem('savedLastName');
+        localStorage.setItem('savedFirstName', JSON.stringify(firstName));
+        localStorage.setItem('savedLastName', JSON.stringify(lastName));
+       
     })
     }
 
@@ -77,15 +77,10 @@ function getSeasonAvg () {
         console.log("Season Average Rebounds: " + seasonAvgReb);
         $("#tableReb").text(seasonAvgReb);
 
-        localStorage.setItem('savedPts', seasonAvgPts);
-        document.getElementById('searchedPts').innerHTML= localStorage.getItem('savedPts')
+        localStorage.setItem('savedPts', JSON.stringify(seasonAvgPts));
+        localStorage.setItem('savedAsts', JSON.stringify(seasonAvgAst));
+        localStorage.setItem('savedRebounds', JSON.stringify(seasonAvgReb));
         
-        localStorage.setItem('savedAsts', seasonAvgAst);
-        document.getElementById('searchedAsts').innerHTML = localStorage.getItem('savedAsts');
-
-        localStorage.setItem('savedRebounds', seasonAvgReb);
-        document.getElementById('searchedRebounds').innerHTML = localStorage.getItem('savedRebounds');
-
     })
 }
 
@@ -228,3 +223,13 @@ userFormEl.addEventListener('submit', formSubmitHandler);
 //      response: 0: logo: "url"
 // send that value (the url) to a function that creates an html element that displays the image inside the team div
 
+var savedFN = JSON.parse(localStorage.getItem('savedFirstName'));
+var savedLN = JSON.parse(localStorage.getItem('savedLastName'));
+var savedPts = JSON.parse(localStorage.getItem('savedPts'));
+var savedAsts = JSON.parse(localStorage.getItem('savedAsts'));
+var savedRebounds = JSON.parse(localStorage.getItem('savedRebounds'));
+
+document.getElementById('searchedPlayer').innerHTML = savedFN + " " + savedLN;
+document.getElementById('searchedPts').innerHTML = savedPts;
+document.getElementById('searchedAsts').innerHTML = savedAsts;
+document.getElementById('searchedRebounds').innerHTML = savedRebounds;
