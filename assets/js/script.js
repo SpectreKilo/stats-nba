@@ -125,9 +125,7 @@ var formSubmitHandler = function (event) {
     if (teamname) {
       getTeamData(teamname);
   
-    } else {
-      alert('Please enter a valid NBA Team name');
-    }
+    } 
   };
 
 const options1 = {
