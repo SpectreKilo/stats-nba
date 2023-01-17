@@ -32,29 +32,29 @@ An app used to search for the current season average stats for points, assists, 
 ### *Season Average Stats Step 1*
 Search the player you want to see the stats for.
 
-![Search Player]()  
+![Search Player](./assets/images/Search1.png)  
 
 ### *Season Average Stats Step 2*
 The stats will be posted in the Player Season Average Stats table.
 
-![Season Average Stats Table]() 
+![Season Average Stats Table](./assets/images/Search2.png) 
 
 ### *Season Average Stats Step 3*
 The most recent player that you searched will be saved using local storage so that you can see stats even after you refresh the page!
 
-![Locally stored stats]() 
+![Locally stored stats](./assets/images/Search3.png) 
 
 ### Usage: Team Logos
 
 ### *Team Logos Step 1*
-Select the team, using the dropdown menu, who's logo you wish to view.
+Select the team using the team selector and press the select team button.
 
-![Select Team]() 
+![Select Team](./assets/images/Logo1.png) 
 
 ### *Team Logos Step 2*
 The team's logo that you selected will show up in the same card as the selector.
 
-![Logo demo]()
+![Logo demo](./assets/images/Logo2.png)
 
 
 ## Author Info
